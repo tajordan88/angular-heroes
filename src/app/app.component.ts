@@ -9,7 +9,12 @@ export class Hero {
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  template: '<h1>{{title}}</h1><h2>{{hero.name}} details!</h2>'
+  template: `
+	<h1>{{title}}</h1>
+	<h2>{{hero.name}} details!</h2>
+	<div><label>id: </label>{{hero.id}}</div>
+	<div><label>name: </label>{{hero.name}}</div>
+	`
 })
 export class AppComponent {
   title = 'Angular Heroes App';
