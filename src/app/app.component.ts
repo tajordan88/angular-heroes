@@ -5,12 +5,22 @@ export class Hero {
 	name: string;
 }
 
+
+
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   template: `
 	<h1>{{title}}</h1>
+	<h2>My Heroes</h2>
+	<ul class="heroes">
+		<li *ngFor="let hero of heroes">
+			<span class="badge">{{hero.id}}</span> {{hero.name}}
+		</li>
+	</ul>
 	<h2>{{hero.name}} details!</h2>
 	<div><label>id: </label>{{hero.id}}</div>
 	<div>
@@ -25,7 +35,9 @@ export class AppComponent {
   	id: 1,
   	name: 'Stormcloud'
   };
+  heroes = HEROES;
 }
+
 
 
 const HEROES: Hero[] = [
