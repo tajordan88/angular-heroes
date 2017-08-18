@@ -5,7 +5,18 @@ export class Hero {
 	name: string;
 }
 
-
+const HEROES: Hero[] = [
+	{ id: 1, name: 'Bilbo Bagins' },
+	{ id: 2, name: 'Frodo Bagins' },
+	{ id: 3, name: 'Gandolf The Grey' },
+	{ id: 4, name: 'Gandolf The White' },
+	{ id: 5, name: 'Sauron' },
+	{ id: 6, name: 'Legolas' },
+	{ id: 7, name: 'Mary' },
+	{ id: 8, name: 'Pipin' },
+	{ id: 9, name: 'Orc' },
+	{ id: 10, name: 'Elf' }
+];
 
 
 
@@ -17,7 +28,7 @@ export class Hero {
 	<h1>{{title}}</h1>
 	<h2>My Heroes</h2>
 	<ul class="heroes">
-		<li *ngFor="let hero of heroes" (click)="onSelect(hero)">
+		<li *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">
 			<span class="badge">{{hero.id}}</span> {{hero.name}}
 		</li>
 	</ul>
@@ -81,31 +92,20 @@ export class Hero {
 	`]
 })
 export class AppComponent {
-  title = 'Angular Heroes App';
-  // hero: Hero = {
-  // 	id: 1,
-  // 	name: 'Stormcloud'
-  // };
-  selectedHero: Hero = {
-  	id: HEROES[0].id,
-  	name: HEROES[0].name
-  };
-  heroes: Hero[] = HEROES;
-
+	title = 'Angular Heroes App';
+	// hero: Hero = {
+	// 	id: 1,
+	// 	name: 'Stormcloud'
+	// };
+	selectedHero: Hero = {
+		id: HEROES[0].id,
+		name: HEROES[0].name
+	};
+	heroes: Hero[] = HEROES;
+	
 	onSelect(hero: Hero): void {
 	  this.selectedHero = hero;
 	}
 }
 
-const HEROES: Hero[] = [
-	{ id: 1, name: 'Bilbo Bagins' },
-	{ id: 2, name: 'Frodo Bagins' },
-	{ id: 3, name: 'Gandolf The Grey' },
-	{ id: 4, name: 'Gandolf The White' },
-	{ id: 5, name: 'Sauron' },
-	{ id: 6, name: 'Legolas' },
-	{ id: 7, name: 'Mary' },
-	{ id: 8, name: 'Pipin' },
-	{ id: 9, name: 'Orc' },
-	{ id: 10, name: 'Elf' }
-];
+
